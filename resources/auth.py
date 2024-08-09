@@ -13,5 +13,5 @@ async def register(user_data: UserRegisterIn):
 
 @router.post("/login/")
 async def login(user_data: UserLoginIn):
-    token = await UserManager.login(user_data)
-    return {"token": token}
+    token, role = await UserManager.login(user_data)
+    return {"token": token, "role": role}
